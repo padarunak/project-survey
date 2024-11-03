@@ -1,0 +1,90 @@
+.logo {
+  font-family: "Pacifico", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.logo a {
+  color: #212529;
+  text-decoration: none;
+  background: -webkit-linear-gradient(115deg, rgb(0, 0, 0) 5.8%, rgb(178, 14, 14) 112.6%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+}
+
+footer {
+  font-size: .9rem;
+}
+
+footer a {
+  color: #212529;
+}
+
+.list-group-formset label {
+  display: none;
+}
+
+.list-group-formset .form-group,
+.list-group-formset .invalid-feedback {
+  margin-bottom: 0;
+}
+
+.list-group-formset .form-control {
+  padding: .25rem .5rem;
+  font-size: .875rem;
+  line-height: 1.5;
+  border-radius: .2rem;
+}
+
+.btn-respondent {
+  color: #fff;
+  background-color: #91afb6;
+  border-color: #91afb6;
+}
+
+.btn-respondent:hover,
+.btn-respondent:active {
+  color: #fff;
+  background-color: #608993;
+  border-color: #608993;
+}
+
+.btn-moderator {
+  color: #fff;
+  background-color: #8980a5;
+  border-color: #8980a5;
+}
+
+.btn-moderator:hover,
+.btn-moderator:active {
+  color: #fff;
+  background-color: #66598B;
+  border-color: #66598B;
+}
+
+.has-danger .radio,
+.has-danger .checkbox {
+  color: #dc3545;
+}
+
+.has-danger .invalid-feedback {
+  display: block;
+}
+
+#forms input {
+  margin-bottom: .5rem !important;
+  display: block;
+  width: 100%;
+  height: calc(1.5em + .75rem + 2px);
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
+  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}

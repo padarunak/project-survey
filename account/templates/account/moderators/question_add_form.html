@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{% url 'moderators:quiz_change_list' %}">Мои вопросы</a></li>
+      <li class="breadcrumb-item"><a href="{% url 'moderators:quiz_change' quiz.pk %}">{{ quiz.name }}</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Добавить новый вопрос</li>
+    </ol>
+  </nav>
+  <h2 class="mb-3">Добавить новый вопрос</h2>
+  <p class="lead">Сначала добавьте текст вопроса. На следующем шаге вы сможете добавить возможные ответы.</p>
+  <form method="post" novalidate>
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit" class="btn btn-success">Далее</button>
+    <a href="{% url 'moderators:quiz_change' quiz.pk %}" class="btn btn-outline-secondary" role="button">Отмена</a>
+  </form>
+{% endblock %}

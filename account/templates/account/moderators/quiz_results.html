@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{% url 'moderators:quiz_change_list' %}">Мои опросы</a></li>
+      <li class="breadcrumb-item"><a href="{% url 'moderators:quiz_change' quiz.pk %}">{{ quiz.name }}</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Результаты</li>
+    </ol>
+  </nav>
+  <h2 class="mb-3">{{ quiz.name }} Результаты</h2>
+
+  <div class="card">
+    <div class="card-header">
+      <strong>Пройденные опросы</strong>
+      <span class="badge badge-pill badge-primary float-right">Средний балл: {{ quiz_score.average_score|default_if_none:0.0 }}</span>
+    </div>
+    <table class="table mb-0">
+      <thead>
+        <tr>
+          <th>Респонденты</th>
+          <th>Дата</th>
+          <th>Баллы</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for taken_quiz in taken_quizzes %}
+          <tr>
+            <td>{{ taken_quiz.respondent.user.username }}</td>
+            <td>{{ taken_quiz.date }}</td>
+            <td>{{ taken_quiz.score }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <div class="card-footer text-muted">
+      Общее количество респондентов: <strong>{{ total_taken_quizzes }}</strong>
+    </div>
+  </div>
+{% endblock %}

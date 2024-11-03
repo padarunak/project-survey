@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  {% include 'account/respondents/_header.html' with active='new' %}
+  <div class="card">
+    <table class="table mb-0">
+      <thead>
+        <tr>
+          <th>Опрос</th>
+          <th>Категория</th>
+          <th>Кол-во вопросов</th>
+          <th>Дата начала</th>
+          <th>Дата завершения</th>
+          <th>Статус</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for quiz in quizzes %}
+          <tr>
+            <td class="align-middle">{{ quiz.name }}</td>
+            <td class="align-middle">{{ quiz.subject.get_html_badge }}</td>
+            <td class="align-middle">{{ quiz.questions_count }}</td>
+            <td class="align-middle">{{ quiz.start_date }}</td>
+            <td class="align-middle">{{ quiz.end_date }}</td>
+            <td class="align-middle">{{ quiz.is_active }}</td>
+            <td class="text-right">
+              <a href="{% url 'respondents:take_quiz' quiz.pk %}" class="btn btn-primary">Начать опрос</a>
+            </td>
+          </tr>
+        {% empty %}
+          <tr>
+            <td class="bg-light text-center font-italic" colspan="6">На данный момент нет опросов, для ваших категорий.</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}

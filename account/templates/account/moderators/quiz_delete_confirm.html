@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{% url 'moderators:quiz_change_list' %}">Мои опросы</a></li>
+      <li class="breadcrumb-item"><a href="{% url 'moderators:quiz_change' quiz.pk %}">{{ quiz.name }}</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Подтверждение удаления</li>
+    </ol>
+  </nav>
+  <h2 class="mb-3">Подтверждение удаления</h2>
+  <p class="lead">Вы уверены что хотите удалить <strong>"{{ quiz.name }}"</strong>? Эту операцию невозможно отменить!</p>
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger btn-lg">Да, уверен</button>
+    <a href="{% url 'moderators:quiz_change' quiz.pk %}" class="btn btn-outline-secondary btn-lg" role="button">Отмена</a>
+  </form>
+{% endblock %}
